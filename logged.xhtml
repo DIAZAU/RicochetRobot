@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+	<head>
+		<title>Rasende Roboter</title>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/logged.js"></script>
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+		<script>$('#draggable').draggable();$('#0ET0').droppable();</script>
+		<script type="text/javascript">
+			$(function() {
+			        $( "#draggable" ).draggable();
+			});
+		</script>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body onload="init()">
+<div class="container">
+<div class="row">
+	<div class="span1" id="logoSite">
+		<a href="#">
+		<img src="image/logo.png"/>
+		</a>
+	</div>
+</div>
+  <header class="row"><img src="image/slide.png"/></header>
+  <div class="row">
+	  <section class="span12">
+	  <div class="row">
+		  	<div class="span5 well">
+			    <legend class="bordureJaune">Nom de partie est : __IDGAME__</legend>
+			    <p> __STATE__ </p>
+				<input id="login" type="hidden" value="__LOGIN__"/>
+				<input id="idGame" type="hidden" value="__IDGAME__"/>
+				<p id="afficherSolution"></p>
+			</div>
+			<div class="span5 well">
+				<legend class="bordureRouge">Bonjour __LOGIN__</legend>
+                <p id="vainqueur"></p>
+				<p id="compteur"></p>
+			</div>
+	 </div>
+	    <div class="row">
+		    <div class="span5 well">
+				<div id="partie">
+            		<div id="Plateau"></div>
+				</div> 	
+			</div>
+			<div class="span5 well">
+				<legend class="bordureBleu">Les participants</legend>
+					 <nav>
+						<ul id="lesParticipants" />
+					</nav>
+			</div>
+		</div>
+	  </section>
+  </div>
+  <footer class="row">
+  <br/>
+    <p>M2PGI-Projet IHM</p>
+    <script src="js/recupPlateau.js"></script>
+  </footer>
+</div>
+</body>
+</html>

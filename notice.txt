@@ -1,0 +1,2 @@
+il faut installer node js
+et c’est lui qui a node et npm

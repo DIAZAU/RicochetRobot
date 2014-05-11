@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<head>
+	<meta charset="utf-8"/>
+	<title>Rasende Roboter</title>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/login.js"></script>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload="init()">
+<div class="container">
+<div class="row">
+	<div class="span1" id="logoSite">
+		<a href="#">
+		<img src="image/logo.png"/>
+		</a>
+	</div>
+	<div class="span1">
+		<span class="particle particle--c"></span>
+	 	<span class="particle particle--a"></span>
+	 	<span class="particle particle--b"></span>
+	</div>
+</div>
+  <header class="row"><img src="image/slide.png"/></header>
+  <div class="row">
+  <section class="span12">
+  	<div class="row">
+	    <div class="span5 well">
+		    <h4> Rasende Roboter</h4>
+		    <div class="accordion-group">
+			      <div class="accordion-heading">
+				       <a class="accordion-toggle" href="#item1" data-toggle="collapse">
+				      		Les règles de jeu 
+				       </a> 
+			      </div>
+			      <div id="item1" class="collapse in">
+				        <div class="accordion-inner">
+				          <p> Le jeu se compose d’un plateau de 16x16 cases. Une case peut être partiellement entourée par de murs (Sur le plateau peuvent se déplacer 4 robots (rouge, vert, bleu et jaune).</p>
+				          <p>Le jeu se déroule par tour, à chaque tour, une cible est tirée au sort. Cette cible est de la couleur d’un des robot, le but du tour est de trouver comment amener le robot de la couleur de la cible sur celle-ci. </p>
+				          <p>
+						   Les robots se déplacent en ligne droite le long des axes et ne peuvent changer de direction ou s'arrêter que lorsqu’ils butent contre un mur ou un autre robot.</p>
+						   <p> Il est possible de déplacer n’importe quel robot lors d’un tour (y compris s’il n’est pas de la couleur de la cible) mais il n’est pas possible de redéplacer un robot après en avoir déplacer un autre (ex : déplacer le robot rouge, puis le bleu, puis encore le rouge).
+						   </p>
+						   <p>
+							Le nombre de joueur n’est pas limité. Lorsqu’un joueur a trouvé une solution, les autres n’ont plus alors que 60 secondes pour en trouver une meilleure. A l’issue de ce temps, les solutions proposées sont présentées et la plus courte (ie avec le moins de déplacement) gagne.
+							</p>
+							<p>
+							Les règles précises du jeu sont <a href="http://fr.wikipedia.org/wiki/Ricochet_Robots">explicitées ici</a></p>
+				         </div>
+			      </div>
+		    </div>
+	
+	  	</div>
+	  	<div class="span6 well">
+		    <h4>Les réalisateurs</h4>
+		    <br/>
+		    	<div class="modal hide" id="infos">
+					  <div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+					    <h3>Les réalisateurs</h3>
+					  </div>
+					  <div class="modal-body">
+					    <p>Mahmoud Charfeddine</p>
+					    <p>Birahima FALL</p>
+					    <p>Sami Amine Labed</p>
+					  </div>
+					  <div class="modal-footer"> <a class="btn btn-info" data-dismiss="modal">Fermer</a> </div>
+					</div>
+					<a class="btn btn-primary" data-toggle="modal" href="#infos" >Plus d'informations</a>
+	  			</div>
+	  </div>
+    <div class="row">
+    <div class="span5 well">
+		 <form method="post" action="" id="nouvellePartie">
+		 <table>
+		 	<tr>
+		 		<td>
+			 		<label for="idGame">Nom nouvelle partie : </label>
+			 	</td>
+			 	<td>
+		     		<input type="text" name="idGame" id="idGame" class="input-medium" required="required" placeholder="Nom partie" />
+		     	</td>
+		    </tr>
+		    <tr>
+		 		<td>
+		     		<label for="login">Votre nom : </label>
+		     	</td>
+		     	<td>
+		     		<input type="text" name="login" id="login" class="input-medium" required="required" placeholder="Votre nom" />
+		     	</td>
+		     </tr>
+		     <tr>
+		 		<td>
+		 		<br/>
+			 		<button type="submit" class="btn btn-primary btn-small pull-right"> <i class="icon-user icon-white"></i> Nouveau jeu !</button>
+		     	</td>
+		     </tr>
+		</table>
+	    </form>	
+	</div>
+	<div class="span6 well" id="zoneJoindrePartie">
+		 <h4>
+		 	Parties existantes
+		 </h4>
+		 <div class="expand-up">
+			<ul id="lesParties"/>
+		</div>
+	</div>
+	</div>
+	<section id="detailPartie">
+			<ul id="detail"/>
+
+	</section>
+  </section>
+  </div>
+  <footer class="row">
+	  <br/>
+	    <p>M2PGI-Projet IHM</p>
+	    <script src="/js/jquery.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+  </footer>
+</div>
+</body>
+</html>
